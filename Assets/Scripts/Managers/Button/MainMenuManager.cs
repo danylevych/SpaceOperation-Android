@@ -36,7 +36,6 @@ public class MainMenuManager : MonoBehaviour
     private void OptionPriv()
     {
         loadingScene.SetActive(true);
-        SceneLoader.PreviousScene = "MainMenu";
         SceneLoader.instance.LoadScene("Option");
     }
 

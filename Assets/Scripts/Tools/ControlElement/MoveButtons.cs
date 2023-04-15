@@ -1,62 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MoveButtons : MonoBehaviour
 {
+    [SerializeField] private Text sizeText;
+    [SerializeField] private Slider sizeSlider;
     [SerializeField] private ControlElement[] elements;
 
 
-    void Start()
+    private ControlElement whatElem;
+
+    private void Start()
     {
+        whatElem = null;
+
+        sizeSlider.enabled = false;
+
         foreach(var item in elements)
         {
-            Vector2 pos = new Vector2(PlayerPrefs.GetFloat(item.name + "PosX", item.defPos.x),
-                                      PlayerPrefs.GetFloat(item.name + "PosY", item.defPos.y));
-
-            item.element.GetComponent<RectTransform>().anchoredPosition = pos;
+            item.element.GetComponent<RectTransform>().anchoredPosition = item.Position;
+            item.element.GetComponent<RectTransform>().sizeDelta = item.Size;
         }
     }
 
-    void Update()
+    private void Update()
     {
-        Transform whichElem = null;
-
-        foreach (var item in elements)
+        foreach(var elem in elements)
         {
-            if (item.IsActive)
+            if (elem.IsActive)
             {
-                whichElem = item.element.transform;
+                sizeSlider.enabled = true;
+                whatElem = elem;
+
+                sizeSlider.value = 1.5f - whatElem.Size.x / whatElem.defSize.x;
             }
         }
 
-        if (Input.touchCount > 0)
+        if (whatElem != null)
         {
-            if (whichElem != null)
-            {
-                whichElem.transform.position = Input.GetTouch(0).position;
-            }
+            sizeText.text = ((sizeSlider.value + 0.5f) * 100).ToString("F0") + "%";
+        }
+        else
+        {
+            sizeText.text = 100.ToString("F0") + "%";
+            sizeSlider.value = 0.5f;
         }
     }
-
 
     public void ResetElements()
     {
         foreach(var item in elements)
         {
             item.element.GetComponent<RectTransform>().anchoredPosition = item.defPos;
+            item.element.GetComponent<RectTransform>().sizeDelta = item.defSize;
         }
 
         SaveElements();
     }
 
-
     public void SaveElements()
     {
         foreach (var item in elements)
         {
-            PlayerPrefs.SetFloat(item.name + "PosX", item.element.GetComponent<RectTransform>().anchoredPosition.x);
-            PlayerPrefs.SetFloat(item.name + "PosY", item.element.GetComponent<RectTransform>().anchoredPosition.y);
+            item.Size = item.element.GetComponent<RectTransform>().sizeDelta;
+            item.Position = item.element.GetComponent<RectTransform>().anchoredPosition;
+        }
+    }
+
+    public void SetSize(float value)
+    {
+        if (whatElem != null)
+        {
+            whatElem.element.GetComponent<RectTransform>().sizeDelta = whatElem.defSize / (1 - value + 0.5f);
         }
     }
 }

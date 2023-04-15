@@ -9,6 +9,7 @@ public class SettingEvent : MonoBehaviour
     [SerializeField] private Slider backMusic;
     [SerializeField] private Slider effectMusic;
     [SerializeField] private AudioSource button;
+    [SerializeField] private GameObject loadingScene;
 
 
     private void Awake()
@@ -32,5 +33,31 @@ public class SettingEvent : MonoBehaviour
     public void SetsGunsight(int id)
     {
         PlayerPrefs.SetInt("TypeGunsight", id);
+    }
+    
+
+    public void ButtonsSetting()
+    {
+        button.Play();
+        Invoke(nameof(ButtonsSettingPriv), 0.3f);
+    }
+
+    private void ButtonsSettingPriv()
+    {
+        loadingScene.SetActive(true);
+        SceneLoader.PreviousScene = "Option";
+        SceneLoader.instance.LoadScene("ButtonsSetting");
+    }
+
+    public void Back()
+    { 
+        button.Play();
+        Invoke(nameof(BackPriv), 0.3f);
+    }
+
+    private void BackPriv()
+    {
+        loadingScene.SetActive(true);
+        SceneLoader.instance.LoadScene("MainMenu");
     }
 }

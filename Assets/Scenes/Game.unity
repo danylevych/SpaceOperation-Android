@@ -326,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0.76672363}
+  m_AnchoredPosition: {x: 0, y: 0.76660156}
   m_SizeDelta: {x: -0.00024414, y: -1.5334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133422013
@@ -956,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -86.34314, y: 85.36084}
+  m_AnchoredPosition: {x: -86.34326, y: 85.36084}
   m_SizeDelta: {x: 74.5558, y: 92.0174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362738811
@@ -1022,7 +1022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83.49786, y: -83.497925}
+  m_AnchoredPosition: {x: 83.4978, y: -83.49805}
   m_SizeDelta: {x: 66.9958, y: 66.9958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &388810339
@@ -1171,6 +1171,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37ff975fb0076f44a3e31918c9b3003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &424381923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424381925}
+  - component: {fileID: 424381924}
+  m_Layer: 0
+  m_Name: SetPosAndSize
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &424381924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424381923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598db5adcef6a7b40a91432e1b0acafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+  - name: Joystick
+    element: {fileID: 2085239798}
+    defPos: {x: 300, y: 270}
+    defSize: {x: 250, y: 250}
+  - name: Shooting
+    element: {fileID: 527090549}
+    defPos: {x: -350, y: 300}
+    defSize: {x: 150, y: 150}
+  - name: Reloading
+    element: {fileID: 1060228999}
+    defPos: {x: -500, y: 140}
+    defSize: {x: 80, y: 80}
+--- !u!4 &424381925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424381923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &452426853 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 9095050733767399708, guid: 865e31391842bbc4a877f77d8caefa05, type: 3}
@@ -6594,7 +6651,7 @@ Transform:
   m_GameObject: {fileID: 826620506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 11, y: 11, z: 11}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -7466,7 +7523,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 2085239797}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2085239798}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
@@ -8467,6 +8524,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+--- !u!1 &2085239798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 2085239797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092899045
 GameObject:
   m_ObjectHideFlags: 0
@@ -8553,7 +8615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0.76672363}
+  m_AnchoredPosition: {x: 0, y: 0.76660156}
   m_SizeDelta: {x: -0.0002, y: -1.5334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2142494771
@@ -9785,6 +9847,7 @@ MonoBehaviour:
   backMusic: {fileID: 4371444282103720132}
   effectMusic: {fileID: 4371444281442474707}
   button: {fileID: 0}
+  loadingScene: {fileID: 0}
 --- !u!1 &4371444282176373299
 GameObject:
   m_ObjectHideFlags: 0

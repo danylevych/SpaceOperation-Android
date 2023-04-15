@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5299252757161411653}
-  - component: {fileID: 4186241639803884164}
+  - component: {fileID: 2377570980755128637}
   - component: {fileID: -3012785800688902623}
   - component: {fileID: 5703350871876896545}
   - component: {fileID: 8911351031966642831}
@@ -30,13 +30,13 @@ Transform:
   m_GameObject: {fileID: 7474341614459329759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.5, y: 10.5, z: 10.5}
+  m_LocalScale: {x: 13, y: 13, z: 13}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4186241639803884164
+--- !u!212 &2377570980755128637
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11
+  m_Radius: 0.12
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5703350871876896545
 Rigidbody:
@@ -133,7 +133,6 @@ MonoBehaviour:
   speedHint: 10
   hintPref: {fileID: 6883280391867954306, guid: 58f30837a9e0d4141bd930265344a8e4, type: 3}
   explosionPref: {fileID: 6655255475426102595, guid: 6bbdbbd71476068468e8af35e361c056, type: 3}
-  explosionAudio: {fileID: 0}
 --- !u!95 &2404949224683365735
 Animator:
   serializedVersion: 5
