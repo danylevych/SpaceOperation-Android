@@ -2,6 +2,13 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+// +=========================================+
+// |                                         |
+// |   This script checks the target's HP    |
+// |                                         |
+// +=========================================+
+
 public class HPManager : MonoBehaviour
 {
     public static HPManager instance;
@@ -10,6 +17,7 @@ public class HPManager : MonoBehaviour
 
     private int hp = 100;
     private string typeHP = "█";
+
 
     private void Awake()
     {

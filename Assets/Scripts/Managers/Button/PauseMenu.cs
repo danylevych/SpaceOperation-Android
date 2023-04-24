@@ -2,6 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+// +=========================================+
+// |                                         |
+// | This script for the buttons in PauseMenu|
+// |           in the Game scene.            |
+// |                                         |
+// +=========================================+
+
+
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
@@ -20,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+
     private void Update()
     {
         if (pauseButton.GetComponent<UIButton>().IsActive)
@@ -36,6 +45,8 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+
+    // ========================== Resume Button =============================
     public void Resume()
     {
         buttonClick.Play();
@@ -44,7 +55,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPauseMenuActive = false;
     }
+    // =====================================================================
 
+
+    // =========================== Pause Button =============================
     public void Pause()
     {
         buttonClick.Play();
@@ -53,14 +67,20 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         isPauseMenuActive = true;
     }
+    // =====================================================================
 
+
+    // ========================== Option Button ============================
     public void Options()
     {
         buttonClick.Play();
         pauseMenu.SetActive(false);
         optionsScene.SetActive(true);
     }
+    // =====================================================================
 
+
+    // =========================== Menu Button =============================
     public void Menu()
     {
         buttonClick.Play();
@@ -73,11 +93,15 @@ public class PauseMenu : MonoBehaviour
         loadingScene.SetActive(true);
         SceneLoader.instance.LoadScene("MainMenu");
     }
+    // =====================================================================
 
+
+    // =========================== Back Button =============================
     public void Back()
     {
         buttonClick.Play();
         optionsScene.SetActive(false);
         pauseMenu.SetActive(true);
     }
+    // =====================================================================
 }

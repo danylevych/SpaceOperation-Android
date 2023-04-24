@@ -1,5 +1,13 @@
 using UnityEngine;
 
+
+// +=========================================+
+// |                                         |
+// |  This script connects the gunsight for  |
+// |                the ship.                |
+// |                                         |
+// +=========================================+
+
 public class ConectGunsight : MonoBehaviour
 {
     [SerializeField] private Transform shipPosition;
@@ -8,6 +16,7 @@ public class ConectGunsight : MonoBehaviour
 
     private GameObject gunsight;
 
+
     private void Start()
     {
         gunsight = Instantiate((PlayerPrefs.GetInt("TypeGunsight", 0) == 0 ? dotGunsightPref : squreGunsightPref), shipPosition);
@@ -15,6 +24,6 @@ public class ConectGunsight : MonoBehaviour
 
     void Update()
     {
-        gunsight.GetComponent<IGunsight>()?.SetPosition(shipPosition.transform.position);
+        gunsight.GetComponent<Gunsight>()?.SetPosition(shipPosition.transform.position);
     }
 }

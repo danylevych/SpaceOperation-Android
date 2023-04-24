@@ -1,7 +1,12 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
+
+// +=========================================+
+// |                                         |
+// | This script set the current gunsight in |
+// |            Optione scene.               |
+// |                                         |
+// +=========================================+
 
 public class SelectGunsight : MonoBehaviour
 {

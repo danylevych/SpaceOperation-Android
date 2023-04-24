@@ -1,5 +1,13 @@
 using UnityEngine;
 
+
+// +=========================================+
+// |                                         |
+// | This is the field limit script for the  |
+// |                 ship.                   |
+// |                                         |
+// +=========================================+
+
 public class Boundaries : MonoBehaviour
 {
     private Vector2 screenBounds;
@@ -16,10 +24,10 @@ public class Boundaries : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Set bounds for the ship sprite.
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
         transform.position = viewPos;
     }
 }
-

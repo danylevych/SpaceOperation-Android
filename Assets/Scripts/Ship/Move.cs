@@ -1,5 +1,12 @@
 using UnityEngine;
 
+
+// +=========================================+
+// |                                         |
+// | This script moves and rotates the ship. |
+// |                                         |
+// +=========================================+
+
 public class Move : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -15,6 +22,7 @@ public class Move : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Rotating the camera in the opposite side that ship rotate.
         float planeAngle = LimitAngle(obj.transform.eulerAngles.z);
         float planeNewAngle = Mathf.Clamp(Mathf.LerpAngle(Camera.main.transform.rotation.z, planeAngle, 0.25f), -10, 10);
 
@@ -55,9 +63,9 @@ public class Move : MonoBehaviour
 
     private void RortateShip(float angle, float speed)
     {
+        // Rotating the ship in the left or right side.
         float currentAngle = LimitAngle(obj.transform.rotation.eulerAngles.z);
        
-
         transform.rotation = Quaternion.Euler(obj.transform.rotation.eulerAngles.x,
                                               obj.transform.rotation.eulerAngles.y,
                                               Mathf.Clamp(Mathf.LerpAngle(currentAngle, angle, speed),

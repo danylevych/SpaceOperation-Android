@@ -51,9 +51,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
         Vector2 center = new Vector2(0.5f, 0.5f);
         background.pivot = center;
-        handle.anchorMin = center;
-        handle.anchorMax = center;
-        handle.pivot = center;
+        // handle.anchorMin = center;
+        // handle.anchorMax = center;
+        // handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
     }
 

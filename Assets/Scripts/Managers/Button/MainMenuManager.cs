@@ -1,19 +1,28 @@
 ﻿using UnityEngine;
 
 
+// +=========================================+
+// |                                         |
+// | This script for the buttons in MainMenu.|
+// |                                         |
+// +=========================================+
+
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject exitUI;
     [SerializeField] private GameObject loadingScene;
     [SerializeField] private AudioSource buttonClick;
 
+    // This is a variable, that counting the user clicks and open Easter Egg.
     private static int clickCounter = 0;
+
 
     private void Awake()
     {
         clickCounter = PlayerPrefs.GetInt("CountClicks", 0);
     }
 
+    // ========================== Play Button ==============+=============
     public void Play()
     {
         buttonClick.Play();
@@ -25,8 +34,10 @@ public class MainMenuManager : MonoBehaviour
         loadingScene.SetActive(true);
         SceneLoader.instance.LoadScene("Game");
     }
+    // ===================================================================
 
 
+    // ========================= Option Button ==========================
     public void Option()
     {
         buttonClick.Play();
@@ -38,7 +49,10 @@ public class MainMenuManager : MonoBehaviour
         loadingScene.SetActive(true);
         SceneLoader.instance.LoadScene("Option");
     }
+    // ===================================================================
 
+
+    // ========================== Exit Button ============================
     public void Exit()
     {
         buttonClick.Play();
@@ -55,8 +69,11 @@ public class MainMenuManager : MonoBehaviour
     {
         buttonClick.Play();
         exitUI.SetActive(false);
-    }
+    }   
+    // ===================================================================
 
+
+    // ======================== EasterEgg Button =========================
     public void EsternEgg()
     {
         buttonClick.Play();
@@ -73,4 +90,5 @@ public class MainMenuManager : MonoBehaviour
             clickCounter++;
         }
     }
+    // ===================================================================
 }

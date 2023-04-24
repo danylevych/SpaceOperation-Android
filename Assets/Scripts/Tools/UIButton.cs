@@ -1,6 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+// +=========================================+
+// |                                         |
+// |  This script can chack if buttons were  |
+// |         pressed or released.            |
+// |                                         |
+// +=========================================+
+
 public class UIButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool IsActive = false;

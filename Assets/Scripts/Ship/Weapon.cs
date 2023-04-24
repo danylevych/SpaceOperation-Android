@@ -2,12 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+// +=========================================+
+// |                                         |
+// |   This script describes the weapon of   |
+// |                a ship.                  |
+// |                                         |
+// +=========================================+
+
 public class Weapon : MonoBehaviour
 {
     [SerializeField] public GameObject bulletPref;
     [SerializeField] public Transform leftFirePoit;
     [SerializeField] public Transform rightFirePoit;
     [SerializeField] public AudioSource shootingAudio;
+
     [SerializeField] private Button shooting;
     [SerializeField] private Button reloading;
 
@@ -16,6 +24,7 @@ public class Weapon : MonoBehaviour
     private bool isShooting;
     private float timeOfEachBullet;
 
+
     private void Start()
     {
         isShooting = false;
@@ -23,7 +32,6 @@ public class Weapon : MonoBehaviour
         timeOfEachBullet = 0f;
     }
 
-   
     private void Update()
     {
         ChackInput();
@@ -33,7 +41,8 @@ public class Weapon : MonoBehaviour
             BulletUI.instance.Normal();
         }
 
-        if (!isReload && Tools.Clock.CheckTime(ref timeOfEachBullet, 0.17f) && isShooting)
+        // If the weapon not reloads, the time between two bullet is normal and the shoot key was pressed.
+        if (Tools.Clock.CheckTime(ref timeOfEachBullet, 0.17f) && isShooting && !isReload)
         {
             Shoot();
             Tools.BulletLimit.AddCountBullet();
@@ -50,7 +59,7 @@ public class Weapon : MonoBehaviour
 
         if (reloading.GetComponent<UIButton>().IsActive || Tools.BulletLimit.IsReload())
         {
-          isReload = true;
+            isReload = true;
         }
     }
 

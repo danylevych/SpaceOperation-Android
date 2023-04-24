@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 
+
+// +=========================================+
+// |                                         |
+// |  This script store needing information  |
+// |            about the ship.              |
+// |                                         |
+// +=========================================+
+
 [System.Serializable]
 public class Ship
 {

@@ -3,6 +3,13 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 
 
+// +=========================================+
+// |                                         |
+// |   This script for the buttons in the    |
+// |           OptionsMenu scene.            |
+// |                                         |
+// +=========================================+
+
 public class SettingEvent : MonoBehaviour
 {
     [SerializeField] private AudioMixer mixer;
@@ -18,24 +25,33 @@ public class SettingEvent : MonoBehaviour
         effectMusic.value = PlayerPrefs.GetFloat("EffectVolume", 1);
     }
 
+    // =========================== BackSound Slider =============================
     public void SetVolumeBackSound(float value)
     {
         mixer.SetFloat("BackVolume", Mathf.Log10(value) * 50);
         PlayerPrefs.SetFloat("BackVolume", value);
     }
 
+    // ==========================================================================
+
+
+    // ========================== EffectSound Slider ============================
     public void SetVolumeEffectSound(float value)
     {
         mixer.SetFloat("EffectVolume", Mathf.Log10(value) * 50);
         PlayerPrefs.SetFloat("EffectVolume", value);
     }
+    // ==========================================================================
 
+    // ==================== A Line Under Type Of Gunsight =======================
     public void SetsGunsight(int id)
     {
         PlayerPrefs.SetInt("TypeGunsight", id);
     }
-    
+    // ==========================================================================
 
+
+    // ============================ ButtonSetting ===============================
     public void ButtonsSetting()
     {
         button.Play();
@@ -48,7 +64,10 @@ public class SettingEvent : MonoBehaviour
         SceneLoader.PreviousScene = "Option";
         SceneLoader.instance.LoadScene("ButtonsSetting");
     }
+    // ==========================================================================
 
+
+    // ============================ Back Button =================================
     public void Back()
     { 
         button.Play();
@@ -60,4 +79,5 @@ public class SettingEvent : MonoBehaviour
         loadingScene.SetActive(true);
         SceneLoader.instance.LoadScene("MainMenu");
     }
+    // ==========================================================================
 }
