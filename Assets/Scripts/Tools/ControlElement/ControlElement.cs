@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 
 
+// +=========================================+
+// |                                         |
+// |  This script consist of info about all  |
+// |        user's control elements.         |
+// |                                         |
+// +=========================================+
+
 [System.Serializable]
 class ControlElement
 {
@@ -52,4 +59,3 @@ class ControlElement
         }
     }
 }
-
