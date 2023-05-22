@@ -57,7 +57,13 @@ public class Weapon : MonoBehaviour
     {
         isShooting = shooting.GetComponent<UIButton>().IsActive;
 
-        if (reloading.GetComponent<UIButton>().IsActive || Tools.BulletLimit.IsReload())
+        /*
+          The isReload variable will get the value true when the reloading button will
+          press, and the guns will must reload, or count using bullets will be equal
+          the maximum count in one volley, what wiil be mean - user used all bullets.
+        */
+        if ((reloading.GetComponent<UIButton>().IsActive && Tools.BulletLimit.IsMustReloading()) ||
+            (Tools.BulletLimit.CountBullet == Tools.BulletLimit.MaxBulletVolley))
         {
             isReload = true;
         }
