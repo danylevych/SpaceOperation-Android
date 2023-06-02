@@ -39,6 +39,8 @@ namespace Tools
 
         private void Start()
         {
+            countBullet = 0;  // Setting the value of static variable, because it's safe previously used bullets.
+
             // Check what type have a user ship.
             if (gameObject.tag == "StandartShip")
             {
