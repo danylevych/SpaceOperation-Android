@@ -4,32 +4,29 @@ using UnityEngine;
 // +=========================================+
 // |                                         |
 // | This script returns the stars according |
-// |         to the user's mouse.            |
+// |         to the user's devices           |
 // |                                         |
 // +=========================================+
 
 public class ParalaxForStar : MonoBehaviour
 {
-    private Vector3 starRotation;
-    private float speed = 10;
+    private Vector3 smoothedAcceleration;
+    private float smoothFactor = 0.1f;
 
-    private void Start()
-    {
-        starRotation.x += Input.GetAxis("Mouse X") * speed * Time.deltaTime;
-        starRotation.y += Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
-        starRotation.z = 0;
-
-        transform.rotation = Quaternion.Euler(-starRotation.x, starRotation.y, starRotation.z);
-    }
 
     private void Update()
     {
-        starRotation.x += Input.GetAxis("Mouse X") * speed * Time.deltaTime;
-        starRotation.y += Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
+        Vector3 rawAcceleration = Input.acceleration;
 
-        if (System.Math.Abs(transform.rotation.x) <= 25 && System.Math.Abs(transform.rotation.y) <= 25)
-        {
-            transform.rotation = Quaternion.Euler(-starRotation.x, starRotation.y, starRotation.z);
-        }
+
+        smoothedAcceleration = Vector3.Lerp(smoothedAcceleration, rawAcceleration, smoothFactor);
+
+
+        float horizontalRotation = Mathf.Atan2(smoothedAcceleration.x, smoothedAcceleration.z) * Mathf.Rad2Deg;
+
+        float verticalRotation = Mathf.Atan2(smoothedAcceleration.y, smoothedAcceleration.z) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0f);
     }
+
 }
